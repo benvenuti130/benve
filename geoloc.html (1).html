@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="it" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Trova posizione</title>
+	<link rel="icon" href="earth.png" /> 
+    <script type="text/javascript">
+      var longLatUtente;
+
+      function getLocation(){
+        navigator.geolocation.getCurrentPosition(showPosizion);
+      }
+      function showPosizion(pos){
+         	longLatUtente = pos.coords;
+          	document.getElementById("posizione").innerHTML = "long: " +longLatUtente.longitude 	+ 	"  Lat: "+ longLatUtente.latitude;
+			document.getElementById("scopri").innerHTML = "Ti trovi qui";
+	  }
+    </script>
+
+  </head>
+  <body>
+	<h1 id="scopri">Scopri ORA dove ti trovi</h1>
+    <p id="posizione"></p>
+    <button type="button" onclick="getLocation()" name="button">Trova</button>
+  </body>
+</html>
